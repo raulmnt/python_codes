@@ -13,7 +13,7 @@ R= 8.3145 #ideal gas contant (J/Kmol)
 # Initial parameters (here given at 20º C)
 FF=0.4 #fill factor (fraction of the autoclave volume filled with water)
 V_l_i= FF*V_t #total initial liquid volume calculated from FF (m^3)
-P_v_i= 2.33*10**3 #initial vapor pressure (Pa)
+P_v_i= 2.33*10**3 #initial water vapor pressure (Pa)
 Rho_i= 998.2 #initial water density (kg/m^3)
 T_i= 20+273.15 #initial temperature (K)
 P_i= 101325 #intial pressure (atmospheric pressure in Pa)
@@ -22,16 +22,16 @@ P_i= 101325 #intial pressure (atmospheric pressure in Pa)
 # Final parameters
 T_f=121+273.15 #final temperature (K)
 
-#calculate water equilibrium vapor pressure at T_f from Antoine's equation, if using a vapor pressure from the literature
-#you can skip this step and asign a value for P_v_f in Pa.
+#This section calculates water equilibrium vapor pressure at final temperature T_f from Antoine's equation, 
+#if using a vapor pressure at T_f from the literature you can skip this step and simply assign a value for P_v_f in Pa.
 A = 3.55959
 B = 643.748
 C = -198.043
 P_v_f_bar = 10 ** (A - (B / (T_f+ C))) #pressure in bar
 P_v_f=P_v_f_bar*10**5 #pressure in Pa
 
-#calculate water density at T_f from  IAPWS empirical equation, if using a density from the literature you can skip 
-#this step and asign a value to Rho_f in kg/m^3
+#This section calculates water density at T_f from  IAPWS empirical equation, 
+#if using a density from the literature you can skip this step and asign a value to Rho_f in kg/m^3
 Tc = 647.096  # Critical temperature of water in K
 rhoc = 322.0  # Critical density of water in kg/m^3
 b_1=1.99274064
